@@ -1,0 +1,127 @@
+@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap'); */
+
+/* Slick Carousel imports (Inhe uncomment tabhi karna agar main.tsx mein import nahi kiya hai) */
+/* @import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css"; */
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  
+  /* --color-primary: #002147;
+  --color-secondary: #f4b41a;
+  --color-accent: #0056b3;
+  --color-text-main: #555555;
+  --color-heading: #002147; */
+   /* Primary brand color (logo circle blue) */
+  --color-primary: #0A2A52;
+
+  /* Secondary brand color (airplane yellow/gold) */
+  --color-secondary: #F5B400;
+
+  /* Accent color (slightly brighter blue for buttons / hover) */
+  /* --color-accent: #1C4FA1; */
+  --color-accent: #F5B400;
+
+  /* Main text color */
+  --color-text-main: #555555;
+
+  /* Headings color (same as primary brand) */
+  --color-heading: #0A2A52;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-text-main bg-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold text-heading;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-secondary text-primary font-bold rounded-md transition-all duration-300 hover:bg-primary hover:text-white uppercase tracking-wider text-sm;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary font-bold rounded-md transition-all duration-300 hover:bg-primary hover:text-white uppercase tracking-wider text-sm;
+  }
+
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+/* Slick Slider Customization */
+.slick-dots li button:before {
+  @apply text-primary;
+}
+
+.slick-dots li.slick-active button:before {
+  @apply text-secondary;
+}
+
+/* Odometer Styles */
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  @apply font-display font-bold;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
