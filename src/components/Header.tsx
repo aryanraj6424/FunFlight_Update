@@ -52,13 +52,13 @@ const Header = () => {
     },
     {
       name: "About Us",
-     path: "#",
-      dropdown: [
-        { name: "About", path: "/about" },
-        { name: "FAQ", path: "/faq" },
-        { name: "Gallery", path: "/gallery" },
-        { name: "Become Pilot", path: "/become-pilot" },
-      ],
+     path: "/about",
+      // dropdown: [
+      //   { name: "About", path: "/about" },
+      //   { name: "FAQ", path: "/faq" },
+      //   { name: "Gallery", path: "/gallery" },
+      //   { name: "Become Pilot", path: "/become-pilot" },
+      // ],
     },
     {
       name: "Trainer",
@@ -83,11 +83,15 @@ const Header = () => {
     {
       name: "Blog",
       path: "/blog",
-      dropdown: [
-        { name: "Blog Post", path: "/blog" },
-        { name: "Classic Blog", path: "/classic-blog" },
-        { name: "Blog Details", path: "/blog-details" },
-      ],
+      // dropdown: [
+      //   { name: "Blog Post", path: "/blog" },
+      //   { name: "Classic Blog", path: "/classic-blog" },
+      //   { name: "Blog Details", path: "/blog-details" },
+      // ],
+    },
+    {
+      name: "Gallery",
+      path: "/gallery",
     },
     {
       name: "Contact Us",
@@ -114,7 +118,7 @@ const Header = () => {
   return (
     <header className="w-full">
       {/* Top Bar */}
-      <div
+      {/* <div
         className={cn(
           "bg-primary text-white py-2 hidden lg:block transition-all duration-300",
           isScrolled && "opacity-0 h-0 overflow-hidden",
@@ -150,7 +154,7 @@ const Header = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Navigation */}
       <nav
@@ -210,7 +214,7 @@ const Header = () => {
 
           {/* Actions */}
           <div className="hidden lg:flex items-center space-x-6">
-            <div
+            {/* <div
               className={cn(
                 "relative flex items-center rounded-full px-4 py-2",
                 !isScrolled && isTransparentPage
@@ -236,9 +240,9 @@ const Header = () => {
                     : "text-primary",
                 )}
               />
-            </div>
+            </div> */}
             <Link to="/contact" className="btn-primary py-3 px-6 text-xs">
-              Join Now
+              Register Now
             </Link>
           </div>
 
@@ -263,7 +267,7 @@ const Header = () => {
         )}
       >
         <div className="p-6 flex flex-col h-full">
-          <div className="flex justify-between items-center mb-12">
+          {/* <div className="flex justify-between items-center mb-12">
             <div className="text-white font-display text-2xl font-extrabold tracking-tighter">
               VISER<span className="text-secondary">FLY</span>
             </div>
@@ -273,7 +277,39 @@ const Header = () => {
             >
               <X className="w-8 h-8" />
             </button>
-          </div>
+          </div> */}
+          {/* <Link to="/" className="flex items-center">
+            <img
+              src="/favicon.png"
+              alt="ViserFly Logo"
+              className="h-20 w-auto "
+            />
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white "
+            >
+              <X className="w-8 h-8 " />
+            </button>
+          </Link> */}
+
+          <div className="flex items-center justify-between w-full p-4">
+  {/* Logo Left Side */}
+  <Link to="/" className="flex items-center">
+    <img
+      src="/favicon.png"
+      alt="ViserFly Logo"
+      className="h-20 w-auto"
+    />
+  </Link>
+
+  {/* Close Button Right Side */}
+  <button
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="text-white"
+  >
+    <X className="w-8 h-8" />
+  </button>
+</div>
 
           <div className="flex flex-col space-y-6">
             {navLinks.map((link) => (
@@ -304,20 +340,20 @@ const Header = () => {
           </div>
 
           <div className="mt-8">
-            <div className="relative flex items-center bg-white/10 rounded-full px-4 py-3 mb-6">
+            {/* <div className="relative flex items-center bg-white/10 rounded-full px-4 py-3 mb-6">
               <input
                 type="text"
                 placeholder="Search..."
                 className="bg-transparent border-none focus:outline-none text-sm text-white w-full"
               />
               <Search className="w-5 h-5 text-white ml-2 cursor-pointer" />
-            </div>
+            </div> */}
             <Link
               to="/contact"
               className="btn-primary w-full py-4 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Join Now
+              Register Now
             </Link>
           </div>
 

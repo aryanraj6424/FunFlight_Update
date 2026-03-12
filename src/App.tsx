@@ -11,6 +11,7 @@ import TrainerDetails from './pages/TrainerDetails';
 import FAQ from './pages/FAQ';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import ScrollToTop from "./components/ScrollToTop";
 
 // Placeholder components for other pages
 const BecomePilot = () => <div className="section-padding container text-center"><h1>Become a Pilot Page</h1></div>;
@@ -22,6 +23,7 @@ function App() {
   return (
     <Router>
       <Layout>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home-2" element={<Home2 />} />
