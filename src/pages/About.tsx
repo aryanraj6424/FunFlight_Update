@@ -33,23 +33,24 @@ const trainerSettings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 3, // Desktop par 3
+  slidesToShow: 3, // Computer/Desktop par 3 dikhenge
   slidesToScroll: 1,
   arrows: false,
   autoplay: true,
   responsive: [
     {
-      breakpoint: 1024, // Tablets
+      breakpoint: 1024, // Tablet view
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 1,
       }
     },
     {
-      breakpoint: 640, // Mobiles
+      breakpoint: 768, // Mobile view (Isse fix hoga)
       settings: {
-        slidesToShow: 1, // Mobile par sirf ek trainer dikhega
-        centerMode: true, // Side se thoda agla card dikhega (optional)
-        centerPadding: '20px',
+        slidesToShow: 1,      // Mobile par ab sirf 1 photo dikhegi
+        centerMode: true,     // Side se dusri image thodi si dikhegi (premium look)
+        centerPadding: '30px', // Side gap
       }
     }
   ]
