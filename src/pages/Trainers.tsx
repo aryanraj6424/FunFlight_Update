@@ -50,18 +50,28 @@ const Trainers = () => {
   };
 
   const trainerSettings = {
-  dots: false,
+  dots: true,
   infinite: true,
-  speed: 600,
-  slidesToShow: 4,
+  speed: 500,
+  slidesToShow: 3, // Desktop par 3
   slidesToScroll: 1,
   arrows: false,
   autoplay: true,
-  autoplaySpeed: 2500,
   responsive: [
-    { breakpoint: 1024, settings: { slidesToShow: 3 } },
-    { breakpoint: 768, settings: { slidesToShow: 2 } },
-    { breakpoint: 480, settings: { slidesToShow: 1 } }
+    {
+      breakpoint: 1024, // Tablets
+      settings: {
+        slidesToShow: 2,
+      }
+    },
+    {
+      breakpoint: 640, // Mobiles
+      settings: {
+        slidesToShow: 1, // Mobile par sirf ek trainer dikhega
+        centerMode: true, // Side se thoda agla card dikhega (optional)
+        centerPadding: '20px',
+      }
+    }
   ]
 };
 
@@ -229,43 +239,67 @@ const Trainers = () => {
       </section>
 
       {/* Meet With Our Trainer */}
-       <section className="section-padding">
-                    <div className="container">
-                      <div className="text-center mb-16 space-y-4">
-                        <div className="flex items-center justify-center space-x-2 text-[#38bdf8]">
-                          <Plane className="w-5 h-5" />
-                          <span className="font-bold uppercase tracking-widest text-lg">Trainer</span>
-                        </div>
-                        <h2 className="text-3xl lg:text-5xl font-display font-extrabold text-primary">
-                          Meet With Our Trainer
-                        </h2>
-                        <p className="text-gray-500 max-w-lg mx-auto text-lg">
-                          Maecenas tempus tellus eget condimentu honemn quam semper libero sit amet adipiscing sem neque sed
-                        </p>
-                      </div>
-                      <Slider {...trainerSettings} className="trainer-slider">
-                        {trainers.map((trainer, index) => (
-                          <div key={index} className="px-4">
-                            <div className="relative group overflow-hidden rounded-2xl shadow-lg">
-                              <img src={trainer.image} alt={trainer.name} className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110" />
-                              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                                <div className="bg-white p-6 rounded-xl text-center space-y-3 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500">
-                                  <h4 className="text-xl font-display font-bold text-primary">{trainer.name}</h4>
-                                  <p className="text-[#38bdf8] text-sm font-bold uppercase tracking-widest">{trainer.role}</p>
-                                  <div className="flex justify-center space-x-3 pt-2">
-                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Facebook className="w-4 h-4" /></a>
-                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Twitter className="w-4 h-4" /></a>
-                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Instagram className="w-4 h-4" /></a>
-                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Linkedin className="w-4 h-4" /></a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </Slider>
-                    </div>
-                  </section>
+       <section className="py-16 md:py-24 bg-white">
+  <div className="container mx-auto px-4">
+    
+    {/* Section Header */}
+    <div className="text-center mb-12 md:mb-16 space-y-4">
+      <div className="flex items-center justify-center space-x-2 text-[#c5a059]">
+        <Plane className="w-5 h-5" />
+        <span className="font-bold uppercase tracking-widest text-sm md:text-lg">Trainer</span>
+      </div>
+      <h2 className="text-3xl md:text-5xl font-display font-extrabold text-[#0a1525]">
+        Meet With Our Trainer
+      </h2>
+      <p className="text-gray-500 max-w-lg mx-auto text-base md:text-lg px-4">
+        Learn from the industry experts dedicated to your aviation success.
+      </p>
+    </div>
+
+    {/* Trainer Slider */}
+    <div className="trainer-slider-wrapper">
+      <Slider {...trainerSettings} className="trainer-slider">
+        {trainers.map((trainer, index) => (
+          <div key={index} className="px-2 md:px-4 outline-none">
+            <div className="relative group overflow-hidden rounded-2xl shadow-lg bg-gray-100">
+              
+              {/* Image - Mobile par height thodi kam ki hai */}
+              <img 
+                src={trainer.image} 
+                alt={trainer.name} 
+                className="w-full h-[350px] md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-110" 
+              />
+              
+              {/* Overlay - Mobile par hamesha dikh sakta hai ya sirf hover par */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1525]/90 via-[#0a1525]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-8">
+                
+                <div className="bg-white p-5 md:p-6 rounded-xl text-center space-y-2 md:space-y-3 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500 shadow-2xl">
+                  <h4 className="text-lg md:text-xl font-bold text-[#0a1525]">{trainer.name}</h4>
+                  <p className="text-[#c5a059] text-xs md:text-sm font-black uppercase tracking-widest">{trainer.role}</p>
+                  
+                  {/* Social Icons */}
+                  <div className="flex justify-center space-x-3 pt-2">
+                    {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                      <a 
+                        key={i} 
+                        href="#" 
+                        className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-[#0a1525] hover:bg-[#c5a059] hover:text-white transition-all border border-gray-100"
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+
+  </div>
+</section>
 
       {/* Stats & Join Form */}
       {/* <section className="py-24 bg-gray-50">
