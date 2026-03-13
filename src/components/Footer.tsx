@@ -307,6 +307,12 @@ export default function Footer() {
                 Trainer
               </Link>
             </li>
+            <li className="pt-2 border-t border-gray-800">
+              <Link to="/admin" className="text-gray-600 hover:text-[#F5B400] text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
+                Admin Terminal
+              </Link>
+            </li>
 
           </ul>
         </div>
