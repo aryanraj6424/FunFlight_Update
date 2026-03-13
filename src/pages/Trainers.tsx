@@ -52,24 +52,40 @@ const Trainers = () => {
   const trainerSettings = {
   dots: true,
   infinite: true,
-  speed: 500,
-  slidesToShow: 3, // Desktop par 3
+  speed: 600,
+  slidesToShow: 3,
   slidesToScroll: 1,
   arrows: false,
   autoplay: true,
+  autoplaySpeed: 2500,
+
   responsive: [
     {
-      breakpoint: 1024, // Tablets
+      breakpoint: 1024,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 2
       }
     },
     {
-      breakpoint: 640, // Mobiles
+      breakpoint: 768,
       settings: {
-        slidesToShow: 1, // Mobile par sirf ek trainer dikhega
-        centerMode: true, // Side se thoda agla card dikhega (optional)
-        centerPadding: '20px',
+        slidesToShow: 2
+      }
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        centerMode: true,
+        centerPadding: "30px"
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        centerMode: true,
+        centerPadding: "20px"
       }
     }
   ]
@@ -267,7 +283,7 @@ const Trainers = () => {
               <img 
                 src={trainer.image} 
                 alt={trainer.name} 
-                className="w-full h-[350px] md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-110" 
+                className="w-full h-[320px] md:h-[450px] object-cover object-cover transition-transform duration-700 group-hover:scale-110" 
               />
               
               {/* Overlay - Mobile par hamesha dikh sakta hai ya sirf hover par */}
