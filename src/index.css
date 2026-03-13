@@ -1,44 +1,32 @@
 @import "tailwindcss";
-/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap'); */
 
-/* Slick Carousel imports (Inhe uncomment tabhi karna agar main.tsx mein import nahi kiya hai) */
-/* @import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css"; */
+/* 1. Slick Carousel Imports (Activated) */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
   --font-serif: "Libre Baskerville", serif;
   
-  /* --color-primary: #002147;
-  --color-secondary: #f4b41a;
-  --color-accent: #0056b3;
-  --color-text-main: #555555;
-  --color-heading: #002147; */
-   /* Primary brand color (logo circle blue) */
+  /* Brand Colors */
   --color-primary: #0A2A52;
-
-  /* Secondary brand color (airplane yellow/gold) */
   --color-secondary: #F5B400;
-
-  /* Accent color (slightly brighter blue for buttons / hover) */
-  /* --color-accent: #1C4FA1; */
   --color-accent: #F5B400;
-
-  /* Main text color */
   --color-text-main: #555555;
-
-  /* Headings color (same as primary brand) */
   --color-heading: #0A2A52;
 }
 
 @layer base {
   body {
-    @apply font-sans text-text-main bg-white;
+    @apply font-sans bg-white;
+    /* Tailwind v4 utility fix: using CSS variable directly */
+    color: var(--color-text-main);
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold text-heading;
+    @apply font-display font-bold;
+    color: var(--color-heading);
   }
 }
 
@@ -55,8 +43,29 @@
     @apply py-20 lg:py-32;
   }
 
-  .container {
+  /* Note: Tailwind v4 handles containers differently, but keeping your custom class */
+  .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* 2. Mobile View Slider Fix (Crucial) */
+@media (max-width: 768px) {
+  .trainer-slider .slick-slide {
+    display: block !important;
+    float: left !important;
+    height: auto !important;
+    min-height: 1px !important;
+    width: 100% !important; 
+  }
+  
+  .trainer-slider .slick-track {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .trainer-slider .slick-list {
+    overflow: hidden !important;
   }
 }
 
@@ -70,16 +79,19 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary rounded-full;
+  background-color: var(--color-primary);
+  border-radius: 9999px;
 }
 
 /* Slick Slider Customization */
 .slick-dots li button:before {
-  @apply text-primary;
+  color: var(--color-primary) !important;
+  opacity: 0.5;
 }
 
 .slick-dots li.slick-active button:before {
-  @apply text-secondary;
+  color: var(--color-secondary) !important;
+  opacity: 1;
 }
 
 /* Odometer Styles */
