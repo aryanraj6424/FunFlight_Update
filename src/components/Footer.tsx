@@ -200,8 +200,7 @@ export default function Footer() {
           <h3 className="text-2xl font-serif font-semibold mb-6" style={{ color: '#F5B400' }}>About Me</h3>
 
           <p className="text-gray-400 mb-6 leading-relaxed">
-            Maecenas tempus tellus egondime honcus sequam seitmet dipiscing sem
-            eque sedipsuNam quam
+            Our mission is to provide elite flight training in modern Cessna 172 and Piper PA-28 aircraft while prioritizing safety and satisfaction.
           </p>
 
           {/* Social Icons */}

@@ -83,11 +83,6 @@ const Header = () => {
     {
       name: "Blog",
       path: "/blog",
-      // dropdown: [
-      //   { name: "Blog Post", path: "/blog" },
-      //   { name: "Classic Blog", path: "/classic-blog" },
-      //   { name: "Blog Details", path: "/blog-details" },
-      // ],
     },
     {
       name: "Gallery",

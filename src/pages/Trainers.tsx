@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Facebook, Twitter, Instagram, Linkedin, ChevronLeft, ChevronRight, Star, Quote, Send } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Plane, ChevronLeft, ChevronRight, Star, Quote, Send } from 'lucide-react';
 
 const Trainers = () => {
   const trainers = [
@@ -30,43 +30,8 @@ const Trainers = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Tomas Kishan",
-      role: "Student, USA",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100",
-      content: "Platea tincidunt praesent auis facilisis vel smare nulltciesoin luctus velilibero. Atligula amet selit est morbi sit eros",
-      rating: 5
-    },
-    {
-      id: 2,
-      name: "Robar Williams",
-      role: "Student, USA",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100",
-      content: "Platea tincidunt praesent auis facilisis vel smare nulltciesoin luctus velilibero. Atligula amet selit est morbi sit eros",
-      rating: 5
-    },
-    {
-      id: 3,
-      name: "Kisan Kingson",
-      role: "Student, USA",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100",
-      content: "Platea tincidunt praesent auis facilisis vel smare nulltciesoin luctus velilibero. Atligula amet selit est morbi sit eros",
-      rating: 5
-    },
-    {
-      id: 4,
-      name: "Mariya Khan",
-      role: "Student, USA",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100",
-      content: "Platea tincidunt praesent auis facilisis vel smare nulltciesoin luctus velilibero. Atligula amet selit est morbi sit eros",
-      rating: 5
-    }
-  ];
 
-
-  //slider
+    //slider
   const logoSettings = {
     dots: false,
     infinite: true,
@@ -83,6 +48,60 @@ const Trainers = () => {
       { breakpoint: 640, settings: { slidesToShow: 2 } }
     ]
   };
+
+  const trainerSettings = {
+  dots: false,
+  infinite: true,
+  speed: 600,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: false,
+  autoplay: true,
+  autoplaySpeed: 2500,
+  responsive: [
+    { breakpoint: 1024, settings: { slidesToShow: 3 } },
+    { breakpoint: 768, settings: { slidesToShow: 2 } },
+    { breakpoint: 480, settings: { slidesToShow: 1 } }
+  ]
+};
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Robar Williams",
+      role: "Recent Private Pilot Graduate,UAs",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100",
+      content: "The 14-day accelerated program was intense but incredibly rewarding. The instructors at Fun Flight really care about your safety and precision. I'm now officially a pilot!",
+      rating: 5
+    },
+    {
+      id: 2,
+      name: "Kisan Kingson",
+      role: "Commercial Track Student, USA",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100",
+      content: "Moving through the 9-month career track has been a dream. Training in the Cessna 172 is fantastic, and the mentors here are always available for one-on-one guidance.",
+      rating: 5
+    },
+    {
+      id: 3,
+      name: "Mariya Khan",
+      role: "Instrument Rating Graduate, USA",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100",
+      content: "I came here for my IFR training. The focus on real-world scenarios and the supportive atmosphere made a huge difference in my confidence as a pilot.",
+      rating: 5
+    },
+    {
+      id: 4,
+      name: "Mariya Khan",
+      role: "CFI Candidate, USA",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100",
+      content: "Building my hours here while training for my CFI has been the best career move. The community at Lakeland is exactly what you need to succeed in aviation.",
+      rating: 5
+    }
+  ];
+
+
+  
 
   const sliderSettings = {
     dots: false,
@@ -167,24 +186,6 @@ const Trainers = () => {
       </section>
 
       {/* Brand Logos */}
-      {/* <section className="py-20 border-b border-gray-100">
-        <div className="container">
-          <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-60">
-            {['CIRCLE', 'PAPER', 'MOUNTAIN', 'CIRCLE', 'GLOBE'].map((brand, idx) => (
-              <div key={idx} className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300">
-                <div className="w-8 h-8 bg-black rounded-sm flex items-center justify-center text-white font-bold text-[10px]">
-                  {brand[0]}
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold tracking-tighter text-sm leading-none">{brand}</span>
-                  <span className="text-[8px] tracking-widest">SLOGAN HERE</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       <section className="py-12 border-b border-gray-100 overflow-hidden">
         <div className="container">
           <Slider 
@@ -228,63 +229,46 @@ const Trainers = () => {
       </section>
 
       {/* Meet With Our Trainer */}
-      <section className="py-24 overflow-hidden">
-        <div className="container">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 text-[#38bdf8] font-bold text-sm mb-4 uppercase tracking-widest">
-              <div className="w-5 h-5 bg-[#38bdf8]/10 flex items-center justify-center rounded-sm">
-                <svg viewBox="0 0 24 24" className="w-3 h-3 fill-[#38bdf8]">
-                  <path d="M12 2L1 21h22L12 2zm0 3.45L19.15 19H4.85L12 5.45z" />
-                </svg>
-              </div>
-              Trainer
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#002147] mb-6">Meet With Our Trainer</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-              Maecenas tempus tellus eget condimentu honemn quam semper libero sit amet adipiscing sem neque sed
-            </p>
-          </div>
-
-          <div className="px-10">
-            <Slider {...sliderSettings}>
-              {trainers.map((trainer) => (
-                <div key={trainer.id} className="px-4">
-                  <div className="group bg-white shadow-xl rounded-sm overflow-hidden border border-gray-100">
-                    <div className="relative h-[320px] overflow-hidden">
-                      <img 
-                        src={trainer.image} 
-                        alt={trainer.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6 text-center">
-                      <h4 className="text-xl font-serif font-bold text-[#002147] mb-1">{trainer.name}</h4>
-                      <p className="text-[#38bdf8] text-xs font-bold uppercase tracking-widest mb-6">{trainer.role}</p>
-                      <div className="flex justify-center space-x-3 pt-4 border-t border-gray-100">
-                        <a href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-[#38bdf8] hover:text-white transition-all duration-300">
-                          <Facebook className="w-3.5 h-3.5" />
-                        </a>
-                        <a href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-[#38bdf8] hover:text-white transition-all duration-300">
-                          <Twitter className="w-3.5 h-3.5" />
-                        </a>
-                        <a href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-[#38bdf8] hover:text-white transition-all duration-300">
-                          <Instagram className="w-3.5 h-3.5" />
-                        </a>
-                        <a href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-[#38bdf8] hover:text-white transition-all duration-300">
-                          <Linkedin className="w-3.5 h-3.5" />
-                        </a>
+       <section className="section-padding">
+                    <div className="container">
+                      <div className="text-center mb-16 space-y-4">
+                        <div className="flex items-center justify-center space-x-2 text-[#38bdf8]">
+                          <Plane className="w-5 h-5" />
+                          <span className="font-bold uppercase tracking-widest text-lg">Trainer</span>
+                        </div>
+                        <h2 className="text-3xl lg:text-5xl font-display font-extrabold text-primary">
+                          Meet With Our Trainer
+                        </h2>
+                        <p className="text-gray-500 max-w-lg mx-auto text-lg">
+                          Maecenas tempus tellus eget condimentu honemn quam semper libero sit amet adipiscing sem neque sed
+                        </p>
                       </div>
+                      <Slider {...trainerSettings} className="trainer-slider">
+                        {trainers.map((trainer, index) => (
+                          <div key={index} className="px-4">
+                            <div className="relative group overflow-hidden rounded-2xl shadow-lg">
+                              <img src={trainer.image} alt={trainer.name} className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                <div className="bg-white p-6 rounded-xl text-center space-y-3 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500">
+                                  <h4 className="text-xl font-display font-bold text-primary">{trainer.name}</h4>
+                                  <p className="text-[#38bdf8] text-sm font-bold uppercase tracking-widest">{trainer.role}</p>
+                                  <div className="flex justify-center space-x-3 pt-2">
+                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Facebook className="w-4 h-4" /></a>
+                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Twitter className="w-4 h-4" /></a>
+                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Instagram className="w-4 h-4" /></a>
+                                    <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-primary hover:bg-[#38bdf8] hover:text-white transition-all"><Linkedin className="w-4 h-4" /></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </Slider>
                     </div>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
-      </section>
+                  </section>
 
       {/* Stats & Join Form */}
-      <section className="py-24 bg-gray-50">
+      {/* <section className="py-24 bg-gray-50">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="grid grid-cols-2 gap-px bg-gray-200 border border-gray-200">
@@ -326,7 +310,68 @@ const Trainers = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <section className="py-24 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 gap-px bg-gray-200 border border-gray-200 shadow-sm">
+        {[
+          { label: "Flight Mentors", value: "15+" },
+          { label: "Modern Aircraft", value: "12" },
+          { label: "Certified Pilots", value: "450+" },
+          { label: "Training Programs", value: "6" },
+        ].map((stat, idx) => (
+          <div key={idx} className="bg-gray-50 p-12 text-center group hover:bg-white transition-colors duration-300">
+            <div className="text-5xl font-bold text-[#38bdf8] mb-2">{stat.value}</div>
+            <div className="text-gray-600 font-bold text-sm uppercase tracking-widest">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Enrollment Form */}
+      <div className="bg-white p-12 shadow-2xl rounded-sm border-t-4 border-[#38bdf8]">
+        <h3 className="text-3xl font-serif font-bold text-[#002147] mb-2">Ready to Take Flight?</h3>
+        <p className="text-gray-500 text-sm mb-8">Start your journey from zero to Commercial Pilot in 9 months.</p>
+        
+        <form className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input 
+              type="text" 
+              placeholder="Full Name" 
+              className="w-full border border-gray-200 p-4 text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+            />
+            <input 
+              type="email" 
+              placeholder="Email Address" 
+              className="w-full border border-gray-200 p-4 text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+            />
+          </div>
+          
+          <select className="w-full border border-gray-200 p-4 text-sm focus:outline-none focus:border-[#38bdf8] transition-colors text-gray-500 bg-white">
+            <option value="">Select Your Training Interest</option>
+            <option value="private">Private Pilot (PPL)</option>
+            <option value="accelerated">14-Day Accelerated PPL</option>
+            <option value="commercial">0 to Commercial (9 Months)</option>
+            <option value="instrument">Instrument Rating (IFR)</option>
+            <option value="cfi">CFI / CFI-I Training</option>
+          </select>
+
+          <textarea 
+            placeholder="Tell us about your aviation goals..." 
+            rows={4}
+            className="w-full border border-gray-200 p-4 text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+          ></textarea>
+
+          <button className="w-full bg-[#38bdf8] text-white font-bold py-5 px-8 rounded-sm hover:bg-[#002147] transition-all duration-300 uppercase tracking-widest text-xs shadow-lg shadow-[#38bdf8]/20">
+            Request Program Info
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Our Expert Team */}
       {/* <section className="py-24">
@@ -354,7 +399,7 @@ const Trainers = () => {
       </section> */}
 
       {/* Testimonials */}
-      <section className="py-24 bg-gray-50">
+      {/* <section className="py-24 bg-gray-50">
         <div className="container">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 text-[#38bdf8] font-bold text-sm mb-4 uppercase tracking-widest">
@@ -396,7 +441,48 @@ const Trainers = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <section className="py-24 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <div className="flex items-center justify-center gap-2 text-[#38bdf8] font-bold text-sm mb-4 uppercase tracking-widest">
+        <div className="w-5 h-5 bg-[#38bdf8]/10 flex items-center justify-center rounded-sm">
+          <Plane className="w-3 h-3" />
+        </div>
+        Student Feedback
+      </div>
+      <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#002147] mb-6">What Our Students Say</h2>
+      <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
+        Join the ranks of our successful graduates who have turned their passion for flying into reality through our dedicated training programs in Florida.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {testimonials.map((item) => (
+        <div key={item.id} className="bg-white p-8 shadow-lg rounded-sm relative group hover:-translate-y-2 transition-all duration-300 border border-gray-50">
+          <div className="flex items-center gap-4 mb-6">
+            <img src={item.image} alt={item.name} className="w-12 h-12 rounded-full object-cover border-2 border-[#38bdf8]/20" />
+            <div>
+              <h5 className="font-serif font-bold text-[#002147] text-sm">{item.name}</h5>
+              <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest">{item.role}</p>
+            </div>
+          </div>
+          <p className="text-gray-500 text-[13px] italic leading-relaxed mb-6">
+            "{item.content}"
+          </p>
+          <div className="flex items-center justify-between">
+            <div className="flex text-[#f4b41a]">
+              {[...Array(item.rating)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-current" />
+              ))}
+            </div>
+            <Quote className="w-8 h-8 text-[#38bdf8]/10 group-hover:text-[#38bdf8]/20 transition-colors" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="container relative z-20 -mb-[-20px]">

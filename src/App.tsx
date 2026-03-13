@@ -2,16 +2,19 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import Home2 from './pages/Home2';
+
 import About from './pages/About';
 import Courses from './pages/Courses';
 import CourseDetails from './pages/CourseDetails';
 import Trainers from './pages/Trainers';
-import TrainerDetails from './pages/TrainerDetails';
-import FAQ from './pages/FAQ';
+
+
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import BlogPage from './pages/BlogPage';
+import BlogPostDetail from './pages/BlogPostDetail';
 import ScrollToTop from "./components/ScrollToTop";
+import AdminDashboard from './components/AdminDashboard';
 
 // Placeholder components for other pages
 const BecomePilot = () => <div className="section-padding container text-center"><h1>Become a Pilot Page</h1></div>;
@@ -25,8 +28,9 @@ function App() {
       <Layout>
         <ScrollToTop />
         <Routes>
+          {/* admin path */}
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/" element={<Home />} />
-          <Route path="/home-2" element={<Home2 />} />
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/course-details" element={<CourseDetails />} />
@@ -34,9 +38,10 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/trainers" element={<Trainers />} />
-          <Route path="/trainer-details" element={<TrainerDetails />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/blog" element={<Blog />} />
+          
+          
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
