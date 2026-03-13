@@ -146,10 +146,7 @@ const BlogPostDetail = () => {
 
       </main>
 
-      {/* --- SIMPLE FOOTER FOR ARTICLE --- */}
-      {/* <footer className="py-20 border-t border-white/5 text-center">
-         <p className="text-[10px] text-white/20 font-black uppercase tracking-[0.4em]">© 2026 Fun Flight Training Academy - All Rights Reserved</p>
-      </footer> */}
+    
     </div>
   );
 };
