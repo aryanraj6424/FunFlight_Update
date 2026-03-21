@@ -1,183 +1,8 @@
 
-// import { Facebook, Twitter, Play, Send, ChevronUp } from "lucide-react";
-// import { Link } from "react-router-dom";
-
-// export default function Footer() {
-
-//   const scrollToTop = () => {
-//     window.scrollTo({
-//       top: 0,
-//       behavior: "smooth"
-//     });
-//   };
-
-//   return (
-//     <footer className="bg-[#111317] text-white pt-20 relative">
-
-//       {/* Top Footer */}
-//       <div className="max-w-7xl mx-auto px-6 pb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-//         {/* About */}
-//         <div>
-//           <h3 className="text-2xl font-serif font-semibold mb-6" style={{ color: '#F5B400' }}>About Me</h3>
-
-//           <p className="text-gray-400 mb-6 leading-relaxed">
-//             Maecenas tempus tellus egondime honcus sequam seitmet dipiscing sem
-//             eque sedipsuNam quam
-//           </p>
-
-//           {/* Social Icons */}
-//           <div className="flex gap-4">
-
-//             <a href="https://facebook.com" target="_blank">
-//               <div className="w-10 h-10 rounded-full bg-[#2b2e33] flex items-center justify-center hover:bg-sky-500 transition">
-//                 <Facebook size={18}/>
-//               </div>
-//             </a>
-
-//             <a href="https://twitter.com" target="_blank">
-//               <div className="w-10 h-10 rounded-full bg-[#2b2e33] flex items-center justify-center hover:bg-sky-500 transition">
-//                 <Twitter size={18}/>
-//               </div>
-//             </a>
-
-//             <a href="#">
-//               <div className="w-10 h-10 rounded-full bg-[#2b2e33] flex items-center justify-center hover:bg-sky-500 transition">
-//                 <Play size={18}/>
-//               </div>
-//             </a>
-
-//             <a href="#">
-//               <div className="w-10 h-10 rounded-full bg-[#2b2e33] flex items-center justify-center hover:bg-sky-500 transition">
-//                 <Play size={18}/>
-//               </div>
-//             </a>
-
-//           </div>
-//         </div>
-
-//         {/* Courses */}
-//         <div>
-//           <h3 className="text-2xl font-serif font-semibold mb-6 "style={{ color: '#F5B400' }}>Courses</h3>
-
-//           <ul className="space-y-4 text-gray-300">
-
-//             <li>
-//               <Link to="/courses/usa" className="hover:text-sky-400">
-//                 Airline Pilot For USA
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/courses/asian" className="hover:text-sky-400">
-//                 Airline Pilot For Asian
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/courses/direct" className="hover:text-sky-400">
-//                 Airline Direct Program
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/courses/degree" className="hover:text-sky-400">
-//                 College Degree Program
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/courses/mechanic" className="hover:text-sky-400">
-//                 Mechanic Training
-//               </Link>
-//             </li>
-
-//           </ul>
-//         </div>
-
-//         {/* Quick Links */}
-//         <div>
-//           <h3 className="text-2xl font-serif font-semibold mb-6 "style={{ color: '#F5B400' }}>Quick Link</h3>
-
-//           <ul className="space-y-4 text-gray-300">
-
-//             <li>
-//               <Link to="/about" className="hover:text-sky-400">
-//                 About
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/faq" className="hover:text-sky-400">
-//                 FAQ
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/privacy" className="hover:text-sky-400">
-//                 Privacy & Policy
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/admission" className="hover:text-sky-400">
-//                 Admission
-//               </Link>
-//             </li>
-
-//             <li>
-//               <Link to="/trainer" className="hover:text-sky-400">
-//                 Trainer
-//               </Link>
-//             </li>
-
-//           </ul>
-//         </div>
-
-//         {/* Newsletter */}
-//         <div>
-//           <h3 className="text-2xl font-serif font-semibold mb-6 "style={{ color: '#F5B400' }}>Newsletter</h3>
-
-//           <p className="text-gray-400 mb-6">
-//             Boluptatem accusantiu dolor laudantium totaaperiam
-//           </p>
-
-//           <div className="flex border border-gray-600 rounded">
-
-//             <input
-//               type="email"
-//               placeholder="Email Address"
-//               className="bg-transparent px-4 py-3 w-full outline-none"
-//             />
-
-//             <button className="px-4 text-white hover:text-sky-400">
-//               <Send size={18}/>
-//             </button>
-
-//           </div>
-//         </div>
-
-//       </div>
-
-//       {/* Bottom Copyright */}
-//       <div className="border-t border-gray-800 py-6 text-center text-gray-400">
-//         Copyright © 2026. All Rights Reserved By FunFlight.
-//       </div>
-
-//       {/* Scroll To Top Button */}
-//       <button
-//         onClick={scrollToTop}
-//         className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center text-white shadow-lg hover:bg-sky-600 transition"
-//       >
-//         <ChevronUp size={20}/>
-//       </button>
-
-//     </footer>
-//   );
-// }
 
 
-import { Facebook, Twitter, Instagram,Star, ChevronUp } from "lucide-react";
+
+import { Facebook, Music2, Instagram, Star, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -197,7 +22,7 @@ export default function Footer() {
 
         {/* About */}
         <div>
-          <h3 className="text-2xl font-serif font-semibold mb-6" style={{ color: '#F5B400' }}>About Me</h3>
+          <h3 className="text-2xl font-serif font-semibold mb-6" style={{ color: '#F5B400' }}>About Us</h3>
 
           <p className="text-gray-400 mb-6 leading-relaxed">
             Our mission is to provide elite flight training in modern Cessna 172 and Piper PA-28 aircraft while prioritizing safety and satisfaction.
@@ -212,9 +37,9 @@ export default function Footer() {
               </div>
             </a>
 
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://www.tiktok.com/lakewalesflighttraining/" target="_blank">
               <div className="w-10 h-10 rounded-full bg-[#2b2e33] flex items-center justify-center hover:bg-sky-500 transition">
-                <Twitter size={18}/>
+                <Music2 size={18}/>
               </div>
             </a>
 
@@ -224,7 +49,7 @@ export default function Footer() {
               </div>
             </a>
 
-            <a href="https://www.instagram.com/funflighttraining/">
+            <a href="https://www.instagram.com/lakewalesflighttraining/">
               <div className="w-10 h-10 rounded-full bg-[#2b2e33] flex items-center justify-center hover:bg-sky-500 transition">
                 <Instagram size={18}/>
               </div>
@@ -235,37 +60,37 @@ export default function Footer() {
 
         {/* Courses */}
         <div>
-          <h3 className="text-2xl font-serif font-semibold mb-6 "style={{ color: '#F5B400' }}>Courses</h3>
+          <h3 className="text-2xl font-serif font-semibold mb-6" style={{ color: '#F5B400' }}>Courses</h3>
 
           <ul className="space-y-4 text-gray-300">
 
             <li>
-              <Link to="/courses/usa" className="hover:text-sky-400">
-                Airline Pilot For USA
+              <Link to="/courses" className="hover:text-sky-400">
+                Private Pilot Rating
               </Link>
             </li>
 
             <li>
-              <Link to="/courses/asian" className="hover:text-sky-400">
-                Airline Pilot For Asian
+              <Link to="/courses" className="hover:text-sky-400">
+                Instrument Rating
               </Link>
             </li>
 
             <li>
-              <Link to="/courses/direct" className="hover:text-sky-400">
-                Airline Direct Program
+              <Link to="/courses" className="hover:text-sky-400">
+                Commercial Rating
               </Link>
             </li>
 
             <li>
-              <Link to="/courses/degree" className="hover:text-sky-400">
-                College Degree Program
+              <Link to="/courses" className="hover:text-sky-400">
+                Certified Flight Instructor Rating
               </Link>
             </li>
 
             <li>
-              <Link to="/courses/mechanic" className="hover:text-sky-400">
-                Mechanic Training
+              <Link to="/courses" className="hover:text-sky-400">
+                Certified Flight Instructor Instrument
               </Link>
             </li>
 
@@ -274,9 +99,15 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-2xl font-serif font-semibold mb-6 "style={{ color: '#F5B400' }}>Quick Link</h3>
+          <h3 className="text-2xl font-serif font-semibold mb-6" style={{ color: '#F5B400' }}>Quick Link</h3>
 
           <ul className="space-y-4 text-gray-300">
+
+            <li>
+              <Link to="/" className="hover:text-sky-400">
+                Home
+              </Link>
+            </li>
 
             <li>
               <Link to="/about" className="hover:text-sky-400">
@@ -285,32 +116,32 @@ export default function Footer() {
             </li>
 
             <li>
-              <Link to="/faq" className="hover:text-sky-400">
-                FAQ
+              <Link to="/courses" className="hover:text-sky-400">
+                Courses
               </Link>
             </li>
 
             <li>
-              <Link to="/privacy" className="hover:text-sky-400">
-                Privacy & Policy
+              <Link to="/trainers" className="hover:text-sky-400">
+                Trainers
               </Link>
             </li>
 
             <li>
-              <Link to="/admission" className="hover:text-sky-400">
-                Admission
+              <Link to="/gallery" className="hover:text-sky-400">
+                Gallery
               </Link>
             </li>
 
             <li>
-              <Link to="/trainer" className="hover:text-sky-400">
-                Trainer
+              <Link to="/blog" className="hover:text-sky-400">
+                Blog
               </Link>
             </li>
-            <li className="pt-2 border-t border-gray-800">
-              <Link to="/admin" className="text-gray-600 hover:text-[#F5B400] text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
-                Admin Terminal
+
+            <li>
+              <Link to="/contact" className="hover:text-sky-400">
+                Contact
               </Link>
             </li>
 

@@ -1,4 +1,3 @@
-
 // export default AdminDashboard;
 
 import React, { useState, useEffect } from 'react';
@@ -6,6 +5,7 @@ import {
   FileText, Image as ImageIcon, Users, LogOut, Clock, User, 
   LayoutDashboard, Plane, TrendingUp, Plus, Trash2, X, Check, Upload
 } from 'lucide-react';
+import BlogManager from './BlogManager';
 
 const AdminDashboard = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -91,7 +91,27 @@ const AdminDashboard = ({ onLogout }) => {
 
 // --- 1. DASHBOARD STATS ---
 const DashboardStats = () => {
-  const blogCount = JSON.parse(localStorage.getItem('funflight_blogs') || '[]').length;
+  const [blogCount, setBlogCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogCount = async () => {
+      try {
+        const response = await fetch('http://localhost/funFlight-main (2)/funFlight-main/admin/api.php');
+        if (response.ok) {
+          const blogs = await response.json();
+          setBlogCount(blogs.length);
+        }
+      } catch (error) {
+        console.error('Error fetching blog count:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogCount();
+  }, []);
+
   const leadCount = JSON.parse(localStorage.getItem('funflight_contacts') || '[]').length;
   const galleryCount = JSON.parse(localStorage.getItem('gallery') || '[]').length;
 
@@ -111,94 +131,6 @@ const DashboardStats = () => {
            <p className="text-4xl font-black text-white mt-2 tracking-tighter">{stat.value}</p>
         </div>
       ))}
-    </div>
-  );
-};
-
-// --- 2. BLOG MANAGER (With Upload) ---
-const BlogManager = () => {
-  const [blogs, setBlogs] = useState(() => JSON.parse(localStorage.getItem('funflight_blogs')) || []);
-  const [isAdding, setIsAdding] = useState(false);
-  const [newBlog, setNewBlog] = useState({ title: '', category: '', excerpt: '', content: '', image: '' });
-
-  useEffect(() => { localStorage.setItem('funflight_blogs', JSON.stringify(blogs)); }, [blogs]);
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => setNewBlog({ ...newBlog, image: reader.result });
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const slugify = (text) => text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
-
-  const handleAddBlog = () => {
-    if (newBlog.title && newBlog.content) {
-      const blogEntry = { 
-        ...newBlog, 
-        id: Date.now(), 
-        slug: slugify(newBlog.title),
-        date: new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: '2026' }) 
-      };
-      setBlogs([blogEntry, ...blogs]);
-      setNewBlog({ title: '', category: '', excerpt: '', content: '', image: '' });
-      setIsAdding(false);
-    }
-  };
-
-  const deleteBlog = (id) => {
-    if(window.confirm("Abort Mission? This blog will be deleted forever.")) {
-        setBlogs(blogs.filter(b => b.id !== id));
-    }
-  };
-
-  return (
-    <div className="space-y-6">
-      <button onClick={() => setIsAdding(!isAdding)} className="bg-[#c5a059] text-black px-8 py-4 rounded-full font-black uppercase text-xs flex items-center gap-2 hover:scale-105 transition-all">
-        {isAdding ? <X size={16}/> : <Plus size={16}/>} {isAdding ? 'Cancel Entry' : 'New Flight Log'}
-      </button>
-
-      {isAdding && (
-        <div className="bg-white/5 border border-[#c5a059]/30 p-8 rounded-[2.5rem] space-y-4 backdrop-blur-xl">
-          <div className="grid grid-cols-2 gap-4">
-            <input type="text" placeholder="Mission Title" className="bg-black/40 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-[#c5a059]" value={newBlog.title} onChange={e => setNewBlog({...newBlog, title: e.target.value})} />
-            <input type="text" placeholder="Category" className="bg-black/40 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-[#c5a059]" value={newBlog.category} onChange={e => setNewBlog({...newBlog, category: e.target.value})} />
-          </div>
-          
-          <div className="relative group border-2 border-dashed border-white/10 rounded-xl p-8 text-center hover:border-[#c5a059]/50 transition-colors">
-            <input type="file" accept="image/*" onChange={handleImageUpload} className="absolute inset-0 opacity-0 cursor-pointer" />
-            {newBlog.image ? (
-              <img src={newBlog.image} alt="Preview" className="h-32 mx-auto rounded-lg object-cover" />
-            ) : (
-              <div className="flex flex-col items-center gap-2 text-white/40">
-                <Upload size={24} />
-                <span className="text-xs uppercase font-black">Upload Mission Image</span>
-              </div>
-            )}
-          </div>
-
-          <textarea placeholder="Brief Excerpt..." className="w-full bg-black/40 border border-white/10 p-4 rounded-xl text-white outline-none h-20" value={newBlog.excerpt} onChange={e => setNewBlog({...newBlog, excerpt: e.target.value})} />
-          <textarea placeholder="Main Intelligence..." className="w-full bg-black/40 border border-white/10 p-4 rounded-xl text-white outline-none h-48" value={newBlog.content} onChange={e => setNewBlog({...newBlog, content: e.target.value})} />
-          <button onClick={handleAddBlog} className="w-full bg-[#38bdf8] text-black font-black py-4 rounded-xl uppercase tracking-widest text-xs hover:bg-white transition-all">Publish Intel</button>
-        </div>
-      )}
-
-      <div className="grid grid-cols-1 gap-4">
-        {blogs.map(blog => (
-          <div key={blog.id} className="bg-white/5 border border-white/10 p-6 rounded-[2rem] flex items-center justify-between group">
-            <div className="flex items-center gap-6">
-              <img src={blog.image} className="w-16 h-16 rounded-xl object-cover border border-white/10" alt="post" />
-              <div>
-                <h4 className="text-white font-bold uppercase tracking-tight">{blog.title}</h4>
-                <p className="text-[#c5a059] text-[10px] font-black uppercase tracking-widest">{blog.category} • {blog.date}</p>
-              </div>
-            </div>
-            <button onClick={() => deleteBlog(blog.id)} className="p-4 text-white/20 hover:text-red-500 transition-colors"><Trash2 size={20}/></button>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

@@ -9,28 +9,31 @@ const Gallery = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Replace this URL with your actual Admin Panel API endpoint
-  // Example: 'https://your-api.com/api/gallery'
-  const API_ENDPOINT = '/api/gallery-images'; 
+  // PHP API endpoint for gallery
+  const API_ENDPOINT = 'http://localhost/funFlight-main (2)/funFlight-main/admin/api-gallery.php'; 
 
   useEffect(() => {
     const fetchGalleryImages = async () => {
       try {
         setLoading(true);
-        // In a real scenario, this would be: const response = await fetch(API_ENDPOINT);
-        // const data = await response.json();
+        const response = await fetch(API_ENDPOINT);
         
-        // MOCK DATA: Simulate what your Admin Panel might return
-        const mockDataFromAdmin = [
-          { id: 1, image: '/gallery/img1.png', title: 'Checkride Success' },
-          { id: 2, image: '/gallery/img2.png', title: 'Cessna 172 Training' },
-          { id: 3, image: '/gallery/img3.png', title: 'Student Solo Flight' },
-          { id: 4, image: '/gallery/img4.png', title: 'Our Flight Fleet' },
-          { id: 5, image: '/gallery/img5.png', title: 'Lakeland Airport View' },
-          { id: 6, image: '/gallery/img6.png', title: 'Instrument Training' },
-        ];
-
-        setGalleryItems(mockDataFromAdmin);
+        if (response.ok) {
+          const data = await response.json();
+          setGalleryItems(data);
+        } else {
+          // Fallback to mock data if API fails
+          const mockDataFromAdmin = [
+            { id: 1, image: 'https://images.unsplash.com/photo-1548191259-7150825316e6?auto=format&fit=crop&w=800', title: 'Checkride Success' },
+            { id: 2, image: 'https://images.unsplash.com/photo-1559827265-dfaed193a3d9?auto=format&fit=crop&w=800', title: 'Cessna 172 Training' },
+            { id: 3, image: 'https://images.unsplash.com/photo-1584293240633-1125b5c7e6a3?auto=format&fit=crop&w=800', title: 'Student Solo Flight' },
+            { id: 4, image: 'https://images.unsplash.com/photo-1592593482752-1b9c6d5b5b5c?auto=format&fit=crop&w=800', title: 'Our Flight Fleet' },
+            { id: 5, image: 'https://images.unsplash.com/photo-1504607798333-52a30db54a5d?auto=format&fit=crop&w=800', title: 'Lakeland Airport View' },
+            { id: 6, image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800', title: 'Instrument Training' },
+          ];
+          setGalleryItems(mockDataFromAdmin);
+        }
+        
         setLoading(false);
       } catch (err) {
         console.error("Error fetching gallery images:", err);
@@ -102,13 +105,9 @@ const Gallery = () => {
                 >
                   <img
                     src={item.image}
-                    alt={item.title || "Fun Flight Training"}
+                    alt="Gallery Image"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Overlay for Image Title (Optional) */}
-                  <div className="absolute inset-0 bg-[#002147]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white p-4">
-                    <p className="font-bold text-center uppercase tracking-widest text-sm">{item.title}</p>
-                  </div>
                 </div>
               ))}
             </div>
@@ -141,36 +140,7 @@ const Gallery = () => {
       )}
 
       {/* CTA Section */}
-     <section className="container relative z-20 -mb-[-20px]">
-        <div className="bg-[#38bdf8] rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=1920" alt="bg" className="w-full h-full object-cover" />
-          </div>
-          <div className="flex items-center space-x-8 relative z-10">
-            <div className="text-white">
-              {/* <div className="text-3xl font-display font-black tracking-tighter mb-1">VISER<span className="opacity-50">FLY</span></div> */}
-
-              {/* <div className="w-12 h-1 bg-white/50"></div> */}
-
-              <div className="mb-1">
-  <img 
-    src="/favicon.png" // Aapki logo file ka path
-    alt="Viserfly Logo" 
-    className="h-8 md:h-20 w-auto object-contain" // Height adjust karne ke liye
-  />
-</div>
-            </div>
-            <div className="h-16 w-px bg-white/20 hidden lg:block"></div>
-            <div className="space-y-2">
-              <h3 className="text-2xl lg:text-3xl font-display font-bold text-white">Like To Become A Pilot</h3>
-              <p className="text-white/80 text-sm">Lorem ipsum dolor sit amet consectetuer</p>
-            </div>
-          </div>
-          <button className="bg-white text-[#38bdf8] font-bold py-4 px-10 rounded-sm hover:bg-primary hover:text-white transition-all duration-300 text-xs uppercase tracking-widest relative z-10">
-            Become An Pilot
-          </button>
-        </div>
-      </section>
+    
     </div>
   );
 };

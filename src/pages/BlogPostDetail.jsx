@@ -14,20 +14,40 @@ import {
 const BlogPostDetail = () => {
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const API_BASE = 'http://localhost/funFlight-main (2)/funFlight-main/admin/api.php';
 
   useEffect(() => {
-    // 1. LocalStorage se blogs fetch karna
-    const savedBlogs = JSON.parse(localStorage.getItem('funflight_blogs') || '[]');
-    
-    // 2. URL slug ke basis par sahi blog dhoondhna
-    const currentBlog = savedBlogs.find(b => b.slug === slug);
-    setBlog(currentBlog);
+    const fetchBlog = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(API_BASE);
+        if (response.ok) {
+          const blogs = await response.json();
+          const currentBlog = blogs.find(b => b.slug === slug);
+          setBlog(currentBlog);
+          
+          if (!currentBlog) {
+            setError('Blog not found');
+          }
+        } else {
+          setError('Failed to load blog');
+        }
+      } catch (err) {
+        console.error('Error fetching blog:', err);
+        setError('Failed to load blog');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    // Page top par scroll ho jaye jab naya blog khule
+    fetchBlog();
     window.scrollTo(0, 0);
   }, [slug]);
 
-  if (!blog) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-[#0a1525] flex items-center justify-center flex-col gap-6 text-white">
         <div className="w-20 h-20 border-2 border-[#c5a059] border-t-transparent rounded-full animate-spin"></div>
@@ -37,16 +57,27 @@ const BlogPostDetail = () => {
     );
   }
 
+  if (error || !blog) {
+    return (
+      <div className="min-h-screen bg-[#0a1525] flex items-center justify-center flex-col gap-6 text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-4">Blog Not Found</h2>
+          <p className="text-white/40 mb-6">The requested blog post could not be found.</p>
+          <Link to="/blog" className="bg-[#c5a059] text-black px-6 py-3 rounded-lg hover:bg-[#d4b068] transition-colors">
+            Return to Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#0a1525] text-white selection:bg-[#c5a059] font-sans">
-      
-      {/* --- ARTICLE HERO SECTION --- */}
+      {/* HERO SECTION */}
       <header className="relative h-[70vh] min-h-[500px] flex items-end pb-24 px-6 overflow-hidden">
-        {/* Overlay Gradients for Readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1525] via-[#0a1525]/70 to-transparent z-10" />
         <div className="absolute inset-0 bg-black/40 z-0" />
         
-        {/* Hero Background Image */}
         <img 
           src={blog.image || "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600"} 
           className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 transform scale-105"
@@ -54,13 +85,19 @@ const BlogPostDetail = () => {
         />
         
         <div className="relative z-20 max-w-5xl mx-auto w-full">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-[#c5a059] text-[10px] font-black uppercase tracking-[0.3em] mb-8 hover:gap-4 transition-all bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-            <ChevronLeft className="w-4 h-4" /> Back to Hangar
+          <Link 
+            to="/blog" 
+            className="inline-flex items-center gap-2 text-[#c5a059] text-[10px] font-black uppercase tracking-[0.3em] mb-8 hover:gap-4 transition-all bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Back to Blog
           </Link>
           
           <div className="flex items-center gap-3 mb-6">
             <span className="h-[2px] w-12 bg-[#c5a059]"></span>
-            <span className="text-[#c5a059] text-xs font-black uppercase tracking-widest">{blog.category || 'Flight Training'}</span>
+            <span className="text-[#c5a059] text-xs font-black uppercase tracking-widest">
+              {blog.category || 'Flight Training'}
+            </span>
           </div>
 
           <h1 className="text-4xl md:text-7xl font-black text-white leading-[1.1] uppercase tracking-tighter max-w-4xl">
@@ -69,10 +106,10 @@ const BlogPostDetail = () => {
         </div>
       </header>
 
-      {/* --- MAIN CONTENT GRID --- */}
+      {/* CONTENT */}
       <main className="max-w-5xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
         
-        {/* Meta Sidebar (Visible on Desktop) */}
+        {/* SIDEBAR */}
         <aside className="lg:col-span-3">
           <div className="sticky top-32 space-y-10 border-l border-white/5 pl-8">
             <div>
@@ -96,21 +133,21 @@ const BlogPostDetail = () => {
             
             <div className="pt-6">
                <button className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-[#c5a059] hover:text-black transition-all group">
-                 <Share2 className="w-4 h-4 group-hover:scale-125 transition-transform" /> Share Intel
+                  <Share2 className="w-4 h-4 group-hover:scale-125 transition-transform" /> Share Intel
                </button>
             </div>
           </div>
         </aside>
 
-        {/* Article Content Area */}
+        {/* ARTICLE CONTENT */}
         <article className="lg:col-span-9">
           <div className="prose prose-invert max-w-none">
             {/* Lead Text */}
             <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light mb-16 italic border-b border-white/5 pb-12">
-              "Every great pilot started where you are now. The difference between a dream and a destination is the flight plan you follow today."
+              {blog.excerpt || "Every great pilot started where you are now. The difference between a dream and a destination is the flight plan you follow today."}
             </p>
 
-            {/* Main Body Content (Rendered with Line Breaks) */}
+            {/* Main Body Content */}
             <div className="text-white/70 leading-[1.8] text-lg space-y-8 whitespace-pre-wrap font-medium">
               {blog.content}
             </div>
@@ -143,10 +180,7 @@ const BlogPostDetail = () => {
              </Link>
           </div>
         </article>
-
       </main>
-
-    
     </div>
   );
 };

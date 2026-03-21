@@ -37,49 +37,29 @@ const Header = () => {
     {
       name: "Home",
       path: "/",
-      // dropdown: [
-      //   { name: "Home 1", path: "/" },
-      //   { name: "Home 2", path: "/home-2" },
-      // ],
+   
     },
     {
       name: "Courses",
       path: "/courses",
-      // dropdown: [
-      //   { name: "Courses", path: "/courses" },
-      //   { name: "Courses Details", path: "/course-details" },
-      // ],
+     
+    },
+    {
+      name: "Discovery Flight",
+      path: "/discovery-flight",
+    
     },
     {
       name: "About Us",
      path: "/about",
-      // dropdown: [
-      //   { name: "About", path: "/about" },
-      //   { name: "FAQ", path: "/faq" },
-      //   { name: "Gallery", path: "/gallery" },
-      //   { name: "Become Pilot", path: "/become-pilot" },
-      // ],
+   
     },
     {
-      name: "Trainer",
+      name: "Our Team",
       path: "/trainers",
-      // dropdown: [
-      //   { name: "Trainer", path: "/trainers" },
-      //   { name: "Trainer Details", path: "/trainer-details" },
-      // ],
+     
     },
-    // {
-    //   name: "Pages",
-    //   path: "#",
-    //   dropdown: [
-    //     { name: "About", path: "/about" },
-    //     { name: "FAQ", path: "/faq" },
-    //     { name: "Gallery", path: "/gallery" },
-    //     { name: "Become Pilot", path: "/become-pilot" },
-    //     { name: "Contact", path: "/contact" },
-    //     { name: "404", path: "/404" },
-    //   ],
-    // },
+  
     {
       name: "Blog",
       path: "/blog",
@@ -91,10 +71,7 @@ const Header = () => {
     {
       name: "Contact Us",
       path: "/contact",
-      // dropdown: [
-      //   { name: "Event", path: "/events" },
-      //   { name: "Event Details", path: "/event-details" },
-      // ],
+   
     },
   ];
 
@@ -113,43 +90,7 @@ const Header = () => {
   return (
     <header className="w-full">
       {/* Top Bar */}
-      {/* <div
-        className={cn(
-          "bg-primary text-white py-2 hidden lg:block transition-all duration-300",
-          isScrolled && "opacity-0 h-0 overflow-hidden",
-        )}
-      >
-        <div className="container flex justify-between items-center text-xs font-medium">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center">
-              <Phone className="w-3 h-3 mr-2 text-secondary" />
-              <span>+123 456 7890</span>
-            </div>
-            <div className="flex items-center">
-              <Mail className="w-3 h-3 mr-2 text-secondary" />
-              <span>info@viserfly.com</span>
-            </div>
-            <div className="flex items-center">
-              <MapPin className="w-3 h-3 mr-2 text-secondary" />
-              <span>123 Aviation Way, Sky City</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a href="#" className="hover:text-secondary transition-colors">
-              <Facebook className="w-3 h-3" />
-            </a>
-            <a href="#" className="hover:text-secondary transition-colors">
-              <Twitter className="w-3 h-3" />
-            </a>
-            <a href="#" className="hover:text-secondary transition-colors">
-              <Instagram className="w-3 h-3" />
-            </a>
-            <a href="#" className="hover:text-secondary transition-colors">
-              <Linkedin className="w-3 h-3" />
-            </a>
-          </div>
-        </div>
-      </div> */}
+     
 
       {/* Main Navigation */}
       <nav
@@ -164,7 +105,7 @@ const Header = () => {
       >
         <div className="container flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center ml-6">
             <img
               src="/favicon.png"
               alt="ViserFly Logo"
@@ -208,36 +149,10 @@ const Header = () => {
           </div>
 
           {/* Actions */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {/* <div
-              className={cn(
-                "relative flex items-center rounded-full px-4 py-2",
-                !isScrolled && isTransparentPage
-                  ? "bg-white/10"
-                  : "bg-gray-100",
-              )}
-            >
-              <input
-                type="text"
-                placeholder="Search..."
-                className={cn(
-                  "bg-transparent border-none focus:outline-none text-sm w-32 focus:w-48 transition-all duration-300",
-                  !isScrolled && isTransparentPage
-                    ? "text-white placeholder:text-white/60"
-                    : "text-primary",
-                )}
-              />
-              <Search
-                className={cn(
-                  "w-4 h-4 ml-2 cursor-pointer",
-                  !isScrolled && isTransparentPage
-                    ? "text-white"
-                    : "text-primary",
-                )}
-              />
-            </div> */}
+          <div className="hidden lg:flex items-center space-x-6 mr-8">
+           
             <Link to="/contact" className="btn-primary py-3 px-6 text-xs">
-              Register Now
+              Contact Us
             </Link>
           </div>
 
@@ -262,30 +177,7 @@ const Header = () => {
         )}
       >
         <div className="p-6 flex flex-col h-full">
-          {/* <div className="flex justify-between items-center mb-12">
-            <div className="text-white font-display text-2xl font-extrabold tracking-tighter">
-              VISER<span className="text-secondary">FLY</span>
-            </div>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white"
-            >
-              <X className="w-8 h-8" />
-            </button>
-          </div> */}
-          {/* <Link to="/" className="flex items-center">
-            <img
-              src="/favicon.png"
-              alt="ViserFly Logo"
-              className="h-20 w-auto "
-            />
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white "
-            >
-              <X className="w-8 h-8 " />
-            </button>
-          </Link> */}
+
 
           <div className="flex items-center justify-between w-full p-4">
   {/* Logo Left Side */}
@@ -335,14 +227,7 @@ const Header = () => {
           </div>
 
           <div className="mt-8">
-            {/* <div className="relative flex items-center bg-white/10 rounded-full px-4 py-3 mb-6">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="bg-transparent border-none focus:outline-none text-sm text-white w-full"
-              />
-              <Search className="w-5 h-5 text-white ml-2 cursor-pointer" />
-            </div> */}
+           
             <Link
               to="/contact"
               className="btn-primary w-full py-4 text-center"
