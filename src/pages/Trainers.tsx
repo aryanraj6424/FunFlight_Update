@@ -4,30 +4,10 @@ import { Facebook, Twitter, Instagram, Linkedin, Plane, ChevronLeft, ChevronRigh
 
 const Trainers = () => {
   const trainers = [
-    {
-      id: 1,
-      name: "Kuna Huggo",
-      role: "Trainer",
-      image: "team-1.jpg",
-    },
-    {
-      id: 2,
-      name: "Robart Williams",
-      role: "Trainer",
-      image: "team-2.jpg",
-    },
-    {
-      id: 3,
-      name: "Tomas Kishan",
-      role: "Trainer",
-      image: "team-3.jpg",
-    },
-    {
-      id: 4,
-      name: "Divas Kings",
-      role: "Trainer",
-      image: "team-4.jpg",
-    },
+     { name: "Manuel Grimaldo", role: "Owner and Flight Instructor", image: "team-1.jpg" },
+    { name: "Walter Adamski", role: "Chief Flight Instructor", image: "team-2.jpg" },
+    { name: "Brennan McArthur", role: "Flight Instructor", image: "team-3.jpg" },
+    { name: "Madison Casale", role: "Operations Manager", image: "team-4.jpg" },
   ];
 
 
