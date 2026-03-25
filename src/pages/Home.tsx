@@ -120,7 +120,7 @@ const Home = () => {
       subtitle: "Professional Flight School",
       description: "Start your journey to becoming a professional pilot with our comprehensive training programs and world-class instructors.",
       image: "hero-bg.png",
-      buttonText: "Become an Pilot",
+      buttonText: "Become a Pilot",
     },
     {
       title: "From Discovery Flight to Certified Flight Instructor",
@@ -193,10 +193,10 @@ const Home = () => {
   //blog map
   
   const trainers = [
-    { name: "Manuel Grimaldo", role: "Owner and Flight Instructor", image: "team-1.jpg" },
-    { name: "Walter Adamski", role: "Chief Flight Instructor", image: "team-2.jpg" },
-    { name: "Brennan McArthur", role: "Flight Instructor", image: "team-3.jpg" },
-    { name: "Madison Casale", role: "Operations Manager", image: "team-4.jpg" },
+    { name: "Manuel Grimaldo", role: "Owner and Flight Instructor", image: "Team3Manuel.png" },
+    { name: "Walter Adamski", role: "Chief Flight Instructor", image: "Team4Walter.png" },
+    { name: "Brennan McArthur", role: "Flight Instructor", image: "Team1Brennan.png" },
+    { name: "Madison Casale", role: "Operations Manager", image: "Team2madison.png" },
     
   ];
 
