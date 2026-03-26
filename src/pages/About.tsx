@@ -191,37 +191,39 @@ const About = () => {
   // ];
 
   const faqsData = [
-    {
-      category: "General",
-      question: "How long does it take to become a professional pilot?",
-      answer:
-        "At Fun Flight Training, our 'Zero to Hero' career track is designed to take you from zero experience to a Commercial Pilot with CFI & CFI-I ratings in as little as 9 months.",
-    },
-    {
-      category: "Training",
-      question:
-        "At Fun Flight Training, you will train in a fleet of well-maintained aircraft, specifically the Cessna 172 and Piper PA-28, ensuring a safe and technologically current training environment.",
-    },
-    {
-      category: "Medical",
-      question: "What medical certificate do I need?",
-      answer:
-        "For a Private Pilot certificate, a 3rd Class Medical is required. However, if you plan to fly for the airlines, we recommend obtaining a 1st Class Medical certificate early on.",
-    },
-    {
-      category: "General",
-      question: "Can I start training before I'm 16?",
-      answer:
-        "Yes! There is no age requirement to start lessons. However, the FAA requires you to be 16 to fly solo and 17 to take the practical test for your Private Pilot certificate.",
-    },
-    {
-      category: "Training",
-      question:
-        "What is included in the 14-Day Accelerated Private Pilot course?",
-      answer:
-        "The $8,999 course includes 30 hours of dual instruction, 10 hours of solo flight, and 25 hours of ground school. Students must have their written exam completed before starting.",
-    },
-  ];
+  {
+    category: "General",
+    question: "How long does it take to become a professional pilot?",
+    answer:
+      "At Fun Flight Training, our 'Zero to Hero' career track is designed to take you from zero experience to a Commercial Pilot with CFI & CFI-I ratings in as little as 9 months.",
+  },
+  {
+    category: "Training",
+    question: "What airplanes do you fly?",
+    answer:
+      "At Fun Flight Training, you will train in a fleet of well-maintained aircraft, specifically the Cessna 172 and Piper PA-28, ensuring a safe and technologically current training environment.",
+  },
+  {
+    category: "Medical",
+    question: "What medical certificate do I need?",
+    answer:
+      "For a Private Pilot certificate, a 3rd Class Medical is required. However, if you plan to fly for the airlines, we recommend obtaining a 1st Class Medical certificate early on.",
+  },
+  {
+    category: "General",
+    question: "Can I start training before I'm 16?",
+    answer:
+      "Yes! There is no age requirement to start lessons. However, the FAA requires you to be 16 to fly solo and 17 to take the practical test for your Private Pilot certificate.",
+  },
+  {
+    category: "Training",
+    question: "What is included in the 14-Day Accelerated Private Pilot course?",
+    // Client Correction: Removed the $8,999 price as requested.
+    // Data Sync: Verified hours from the Private Pilot Rating requirements.
+    answer:
+      "The course includes 30 hours of dual instruction, 10 hours of solo flight, and 25 hours of ground school. Students must have their FAA written exam completed before starting.",
+  },
+];
 
   const filteredFaqs =
     activeTab === "All"
